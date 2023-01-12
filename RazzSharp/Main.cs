@@ -20,14 +20,10 @@ namespace RazzSharp
             switch (ul_reason_for_call)
             {
                 case Proccess_Attach:
-                    MessageBox(IntPtr.Zero, "We have attached to a process!", "Razz-Sharp", 0);
-                    _console ??= new();
                     Task.Run(DoTheTask);
-                    _console.Open();
                     break;
 
                 case Thread_Attach:
-                    Console.WriteLine($@"[{DateTime.Now}] Attached to thread.");
                     Task.Run(RespondToThread);
                     break;
             }
@@ -36,12 +32,14 @@ namespace RazzSharp
 
         private static void DoTheTask()
         {
-            
+            MessageBox(IntPtr.Zero, "We have attached to a process!", "Razz-Sharp", 0);
+            _console ??= new();
+            _console.Open();
         }
 
         private static void RespondToThread()
         {
-
+            Console.WriteLine($@"[{DateTime.Now}] A thread has used us! The horrors.");
         }
     }
 }
