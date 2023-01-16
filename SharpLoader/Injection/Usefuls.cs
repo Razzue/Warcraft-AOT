@@ -4,6 +4,16 @@ namespace SharpLoader.Injection
 {
     internal class Usefuls
     {
+        [DllImport("user32.dll", SetLastError = true)]
+        internal static extern IntPtr WindowFromPoint(Point p);
+
+        [DllImport("user32.dll", SetLastError = true)]
+        internal static extern bool GetCursorPos(out Point lpPoint);
+
+        [DllImport("user32.dll", SetLastError = true)]
+        internal static extern uint GetWindowThreadProcessId(IntPtr hWnd, out int processId);
+
+
         [DllImport("kernel32.dll", SetLastError = true)]
         internal static extern int CloseHandle(IntPtr hObject);
 

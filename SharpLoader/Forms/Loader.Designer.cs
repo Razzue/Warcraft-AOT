@@ -28,33 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.button_Inject = new System.Windows.Forms.Button();
+            this.button_Offsets = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // button_Inject
             // 
-            this.button1.Location = new System.Drawing.Point(12, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button_Inject.Location = new System.Drawing.Point(12, 12);
+            this.button_Inject.Name = "button_Inject";
+            this.button_Inject.Size = new System.Drawing.Size(90, 23);
+            this.button_Inject.TabIndex = 0;
+            this.button_Inject.Text = "Inject Into";
+            this.button_Inject.UseVisualStyleBackColor = true;
+            // 
+            // button_Offsets
+            // 
+            this.button_Offsets.Enabled = false;
+            this.button_Offsets.Location = new System.Drawing.Point(125, 12);
+            this.button_Offsets.Name = "button_Offsets";
+            this.button_Offsets.Size = new System.Drawing.Size(90, 23);
+            this.button_Offsets.TabIndex = 1;
+            this.button_Offsets.Text = "Load Offsets";
+            this.button_Offsets.UseVisualStyleBackColor = true;
+            this.button_Offsets.Click += new System.EventHandler(this.button_Offsets_Click);
             // 
             // Loader
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(227, 197);
+            this.Controls.Add(this.button_Offsets);
+            this.Controls.Add(this.button_Inject);
             this.Name = "Loader";
             this.Text = "Loader";
+            this.Load += new System.EventHandler(this.Loader_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private Button button1;
+        private Button button_Inject;
+        private Button button_Offsets;
     }
 }
