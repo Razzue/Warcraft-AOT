@@ -72,18 +72,6 @@ internal class Client
             Scanner.OnMatchFound -= Received;
         });
     }
-    private static PropertyInfo[] GetProperties(object input)
-        => input switch
-        {
-            Scripts => typeof(Scripts).GetProperties(BindingFlags.NonPublic | BindingFlags.Instance),
-            Functions => typeof(Functions).GetProperties(BindingFlags.NonPublic | BindingFlags.Instance),
-
-            CameraOffsets => typeof(CameraOffsets).GetProperties(BindingFlags.NonPublic | BindingFlags.Instance),
-            CombatLogOffsets => typeof(CombatLogOffsets).GetProperties(BindingFlags.NonPublic | BindingFlags.Instance),
-            ObjectManagerOffsets => typeof(ObjectManagerOffsets).GetProperties(BindingFlags.NonPublic | BindingFlags.Instance),
-
-            _ => Array.Empty<PropertyInfo>()
-        };
 
     internal static Fields Fields = new();
     internal static void LoadFields()
@@ -96,6 +84,19 @@ internal class Client
 
         });
     }
+
+    private static PropertyInfo[] GetProperties(object input)
+        => input switch
+        {
+            Scripts => typeof(Scripts).GetProperties(BindingFlags.NonPublic | BindingFlags.Instance),
+            Functions => typeof(Functions).GetProperties(BindingFlags.NonPublic | BindingFlags.Instance),
+
+            CameraOffsets => typeof(CameraOffsets).GetProperties(BindingFlags.NonPublic | BindingFlags.Instance),
+            CombatLogOffsets => typeof(CombatLogOffsets).GetProperties(BindingFlags.NonPublic | BindingFlags.Instance),
+            ObjectManagerOffsets => typeof(ObjectManagerOffsets).GetProperties(BindingFlags.NonPublic | BindingFlags.Instance),
+
+            _ => Array.Empty<PropertyInfo>()
+        };
 }
 internal class Memory
 {

@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Text;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SharpLoader.Injection
 {
@@ -66,37 +62,6 @@ namespace SharpLoader.Injection
                 return NeedleResult.Error;
             }
         }
-
-        internal IntPtr FunctionPointer()
-        {
-            try
-            {
-                if (null == _process) return IntPtr.Zero;
-                _process = Process.GetProcessById(_process.Id);
-
-                var handle = Usefuls.OpenProcess(1082U, 1, (uint)_process.Id);
-                Console.WriteLine($@"Handle: {handle.ToInt64():X}");
-                if (handle.ToInt64() == 0) return IntPtr.Zero;
-                
-                ProcessModule? mod = _process.Modules.Cast<object>().Where(module =>
-                    ((ProcessModule)module).FileName.Contains("RazzSharp")).Cast<ProcessModule>().FirstOrDefault();
-                Console.WriteLine($@"Address({null != mod}): {mod?.BaseAddress.ToInt64() ?? IntPtr.Zero.ToInt64():X}");
-                if (null == mod) return IntPtr.Zero;
-
-                var thread = Usefuls.CreateRemoteThread(handle, IntPtr.Zero, IntPtr.Zero,
-                    mod.BaseAddress + 0x7ED60, IntPtr.Zero, 0U, IntPtr.Zero);
-                if (thread.ToInt64() == 0) throw new Exception("Was unable to create a remote thread.");
-
-                Usefuls.CloseHandle(handle);
-                return mod.BaseAddress + 0x7ED60;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                return IntPtr.Zero;
-            }
-        }
-
         internal void ExecuteUnmanaged(int offset)
         {
             if (null == _process) return;

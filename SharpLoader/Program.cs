@@ -6,16 +6,10 @@ namespace SharpLoader
     internal static class Program
     {
         private static Loader _loader = new();
-
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
+        
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-
             var wow = new Process()
             {
                 StartInfo = new ProcessStartInfo()

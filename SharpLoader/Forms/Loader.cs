@@ -93,17 +93,8 @@ namespace SharpLoader.Forms
 
         private void button_Offsets_Click(object sender, EventArgs e)
         {
+            // Offset of Main.LoadOffsets from IDA
             _needle?.ExecuteUnmanaged(0x7ED60);
         }
-
-
-
-        //private void button2_Click(object sender, EventArgs e)
-        //{
-        //    var ptr = needle.FunctionPointer();
-        //    Console.WriteLine($"ptr : {ptr.ToInt64():X}");
-        //    // var del = (LoadOffsets)Marshal.GetDelegateForFunctionPointer(ptr, typeof(LoadOffsets));
-        //    // del.Invoke();
-        //}
     }
 }

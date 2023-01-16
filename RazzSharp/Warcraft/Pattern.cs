@@ -10,26 +10,18 @@ namespace RazzSharp.Warcraft
 
     internal class Pattern
     {
-        private byte[] _bytes;
+        private readonly byte[]? _bytes;
 
         internal Pattern()
         {
             _bytes = Memory.ReadArray<byte>(Client.Address, Client.Size) ?? Array.Empty<byte>();
             byteScan = new();
         }
-
         private ByteScanner byteScan;
 
         internal EventHandler<ScanStartedArgs>? OnScanStarted;
-        internal EventHandler<PatternMatchedArgs> OnMatchFound;
-
-        /// <summary>
-        /// Return the match location of the input pattern.
-        /// </summary>
-        /// <typeparam name="T">Type of value to read. Only primitive types supported.</typeparam>
-        /// <param name="name">Variable identifier. Only used for events.</param>
-        /// <param name="pattern">Value to search for.</param>
-        /// <returns></returns>
+        internal EventHandler<PatternMatchedArgs>? OnMatchFound;
+        
         internal T? Scan1<T>(string name, string pattern)
         {
             var sw = new Stopwatch();

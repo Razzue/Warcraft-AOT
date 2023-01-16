@@ -36,6 +36,7 @@ namespace RazzSharp
             Console.WriteLine($@"[System] Attached to {Client.WindowName} v{Client.FileVersion}");
         }
 
+
         [UnmanagedCallersOnly(EntryPoint = "LoadOffsets", CallConvs = new[] { typeof(CallConvStdcall) })]
         private static void LoadOffsets() => Client.LoadOffsets();
     }
