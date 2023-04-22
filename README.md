@@ -6,7 +6,7 @@ VollRagm: [KernelBypassSharp]("https://github.com/VollRagm/KernelBypassSharp/") 
 
 ZeroLP: [SharpNativeDLL]("https://github.com/ZeroLP/SharpNativeDLL/") -> For introducing me to a template for my projects going forward. 
 
-Because of these individuals, I acheived something i was always told "is impossible".
+Because of these individuals, I achieved something i was always told "is impossible".
 
 ## Disclaimer
 
