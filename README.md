@@ -26,9 +26,12 @@ Full C# internal library for World of Warcraft (Classic and Retail) utilizing .N
 2. Set the path of the DLL to inject.
 3. Build and run!
 # Mentions
-VollRagm: [KernelBypassSharp]("https://github.com/VollRagm/KernelBypassSharp/") -> For introducing me to NativeAOT.
+VollRagm: [KernelBypassSharp][Voll] -> For introducing me to NativeAOT.
 
-ZeroLP: [SharpNativeDLL]("https://github.com/ZeroLP/SharpNativeDLL") -> For introducing me to a template for my projects going forward. 
+ZeroLP: [SharpNativeDLL][Zero] -> For introducing me to a template for my projects going forward. 
+
+[Voll]: https://github.com/VollRagm/KernelBypassSharp
+[Zero]: https://github.com/ZeroLP/SharpNativeDLL
 
 Because of these individuals, I achieved something i was always told was "impossible".
 ## Disclaimer
