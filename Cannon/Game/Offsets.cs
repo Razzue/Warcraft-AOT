@@ -83,6 +83,28 @@ internal class Offsets
         }
     }
 
+    internal class Group
+    {
+        private static int address;
+        internal static int Address
+        {
+            get
+            {
+                try
+                {
+                    if (address > 0) return address;
+                    address = (int)Scanner.Offset(Pattern.ActiveParty, false);
+                    return address;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    return 0;
+                }
+            }
+        }
+    }
+
     internal class Guids
     {
         private static int target;
@@ -257,6 +279,85 @@ internal class Offsets
         }
     }
 
+    internal class Runes
+    {
+        private static int runeStart;
+        internal static int Start
+        {
+            get
+            {
+                try
+                {
+                    if (runeStart > 0) return runeStart;
+                    runeStart = (int)Scanner.Offset(Pattern.PlayerRunes, 0, -0x48, true);
+                    return runeStart;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    return 0;
+                }
+            }
+        }
+
+        private static int runeFinish;
+        internal static int Finish
+        {
+            get
+            {
+                try
+                {
+                    if (runeFinish > 0) return runeFinish;
+                    runeFinish = (int)Scanner.Offset(Pattern.PlayerRunes, 0, -0x28, true);
+                    return runeFinish;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    return 0;
+                }
+            }
+        }
+
+        private static int runeActiveType;
+        internal static int ActiveType
+        {
+            get
+            {
+                try
+                {
+                    if (runeActiveType > 0) return runeActiveType;
+                    runeActiveType = (int)Scanner.Offset(Pattern.PlayerRunes, 0, 0x18, true);
+                    return runeActiveType;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    return 0;
+                }
+            }
+        }
+
+        private static int runeBaseType;
+        internal static int BaseType
+        {
+            get
+            {
+                try
+                {
+                    if (runeBaseType > 0) return runeBaseType;
+                    runeBaseType = (int)Scanner.Offset(Pattern.PlayerRunes, true);
+                    return runeBaseType;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    return 0;
+                }
+            }
+        }
+    }
+
     internal class CVars
     {
         private static int clickToMove;
@@ -348,6 +449,28 @@ internal class Offsets
                     if (_offset > 0) return _offset;
                     _offset = (int)Scanner.Offset(Pattern.ActiveCamera, 1, 0, true);
                     return _offset;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    return 0;
+                }
+            }
+        }
+    }
+
+    internal class Bindings
+    {
+        private static int _address;
+        internal static int Address
+        {
+            get
+            {
+                try
+                {
+                    if (_address > 0) return _address;
+                    _address = (int)Scanner.Offset(Pattern.UserBindings, 0, 0x50, false);
+                    return _address;
                 }
                 catch (Exception e)
                 {

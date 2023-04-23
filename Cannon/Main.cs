@@ -84,7 +84,12 @@ Guid: Mouseover         -> {Offsets.Guids.MouseoverGuid:X}
 Guid: Last Enemy        -> {Offsets.Guids.LastEnemyGuid:X}
 Guid: Last Target       -> {Offsets.Guids.LastTargetGuid:X}
 Guid: Last Friend       -> {Offsets.Guids.LastFriendlyGuid:X}
-Guid: Dialog Window     -> {Offsets.Guids.DialogWindowGuid:X}
+Guid: Dialog Window     -> {Offsets.Guids.DialogWindowGuid:X}{(Client.Expansion == 3? 
+    $"\r\nRunes: Start            -> {Offsets.Runes.Start:X}" +
+    $"\r\nRunes: Finish           -> {Offsets.Runes.Finish:X}" +
+    $"\r\nRunes: Base Type        -> {Offsets.Runes.BaseType:X}" +
+    $"\r\nRunes: Active Type      -> {Offsets.Runes.ActiveType:X}" : string.Empty)}
+Party: Address          -> {Offsets.Group.Address:X}
 CVars: Click To Move    -> {Offsets.CVars.ClickToMove:X}
 CVars: Auto Loot        -> {Offsets.CVars.AutoLoot:X}
 CVars: Offset           -> {Offsets.CVars.Offset:X}
@@ -98,6 +103,7 @@ Manager: Address        -> {Offsets.ObjectManager.Address:X}
 Manager: Player Names   -> {Offsets.ObjectManager.PlayerNames:X}
 Manager: Cooldowns      -> {Offsets.ObjectManager.Cooldowns:X}
 Manager: Zone ID        -> {Offsets.ObjectManager.ZoneID:X}
+Bindings: Address       -> {Offsets.Bindings.Address:X}
 ");
 
                     break;

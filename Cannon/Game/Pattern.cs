@@ -29,6 +29,11 @@ internal class Pattern
         internal readonly string unitsGuid = @"x48\x8B\x0D\x00\x00\x00\x00\x48\x85\xC0\x48\x8B\xC1";
         internal readonly string petGuid = @"x48\x8B\x05\x00\x00\x00\x00\x33\xDB\x45\x8B\xE1";
         internal readonly string mouseGuid = @"x0F\x11\x05\x00\x00\x00\x00\x0F\x10\x07";
+
+        internal readonly string wowBindings = @"x48\x8B\x0D\x00\x00\x00\x00\x33\xDB\x89\x1D\x00\x00\x00\x00\xF6\xC1";
+
+        internal readonly string activeParty = @"x4C\x8D\x35\x00\x00\x00\x00\x41\x8B\xDC";
+        internal readonly string runeBase = @"x8B\x84\x08\x00\x00\x00\x00\xC3\x8B\x84\x08";
     }
 
     private static Dragon _dragon = new();
@@ -55,6 +60,11 @@ internal class Pattern
         internal readonly string unitsGuid = @"x0F\x11\x05\x00\x00\x00\x00\x48\x89\x44\x24\x00\xE8\x00\x00\x00\x00\x40\x84\xFF"; 
         internal readonly string petGuid = @"x48\x8B\x05\x00\x00\x00\x00\x33\xDB\x45\x8B\xE1"; 
         internal readonly string mouseGuid = @"x0F\x11\x05\x00\x00\x00\x00\x0F\x10\x07";
+
+        internal readonly string wowBindings = @"x48\x8B\x0D\x00\x00\x00\x00\x33\xDB\x89\x1D\x00\x00\x00\x00\xF6\xC1";
+
+        internal readonly string activeParty = @"x48\x8B\x1D\x00\x00\x00\x00\x48\x85\xDB\x74\x00\x0F\xB6\x93";
+        internal readonly string runeBase = @"x8B\x84\x08\x00\x00\x00\x00\xC3\x8B\x84\x08";
     }
 
     #region Object Manager
@@ -102,6 +112,18 @@ internal class Pattern
 
     #endregion
 
+    #region Bindings
+
+    internal static string UserBindings
+        => Client.Expansion switch
+        {
+            10 => _dragon.wowBindings,
+            3 => _wrath.wowBindings,
+            _ => string.Empty
+        };
+
+    #endregion
+
     #region General
 
     internal static string ActiveCamera
@@ -133,6 +155,30 @@ internal class Pattern
 
     #endregion
 
+    #region Runes
+
+    internal static string PlayerRunes
+        => Client.Expansion switch
+        {
+            10 => _dragon.runeBase,
+            3 => _wrath.runeBase,
+            _ => string.Empty
+        };
+
+    #endregion
+
+    #region Group
+
+    internal static string ActiveParty
+        => Client.Expansion switch
+        {
+            10 => _dragon.activeParty,
+            3 => _wrath.activeParty,
+            _ => string.Empty
+        };
+
+    #endregion
+
     #region Guids
 
     internal static string MouseoverGuid
@@ -146,7 +192,7 @@ internal class Pattern
         => Client.Expansion switch
         {
             10 => _dragon.playerGuid,
-            3 => _wrath.petGuid,
+            3 => _wrath.playerGuid,
             _ => string.Empty
         };
     internal static string UnitGuid
