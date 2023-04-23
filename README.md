@@ -6,7 +6,7 @@ Full C# internal library for World of Warcraft (Classic and Retail) utilizing .N
 
 # Build Instructions
 
-### Glass Cannon
+### Cannon
 1. Set project configuration to `Release` and `x64`.
 2. Right click the project and open the `Publish` option.
 3. Select the folder option, and enter your desired publish directory.
