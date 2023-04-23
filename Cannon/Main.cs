@@ -1,6 +1,9 @@
 ﻿using System.Runtime.InteropServices;
 using System.Runtime.CompilerServices;
+
 using Cannon.Game;
+using Cannon.Warcraft;
+using Cannon.Warcraft.Structs;
 
 namespace Cannon;
 class Main
@@ -53,7 +56,7 @@ class Main
         }
     }
 
-    private static void DoTask(int index)
+    private static unsafe void DoTask(int index)
     {
         try
         {
@@ -64,7 +67,9 @@ class Main
                     break;
 
                 case 1:
-                    Console.WriteLine("Need to dump");
+                    Console.WriteLine($"Player Name: {Functions.GetPlayerName()}");
+                    var camera = (Camera*)*(IntPtr*)(*(IntPtr*)(Client.Address + Offsets.Camera.Address) + Offsets.Camera.Offset);
+                    Console.WriteLine($"Camera Location: {camera->Location}");
                     break;
 
                 case 2:
