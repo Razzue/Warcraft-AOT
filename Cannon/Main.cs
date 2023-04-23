@@ -70,8 +70,36 @@ class Main
                     Console.WriteLine($"Player Name: {Functions.GetPlayerName()}");
                     var camera = (Camera*)*(IntPtr*)(*(IntPtr*)(Client.Address + Offsets.Camera.Address) + Offsets.Camera.Offset);
                     Console.WriteLine($"Camera Location: {camera->Location}");
-                    Console.WriteLine($"Spell book address   -> {(*(IntPtr*)(Client.Address + Offsets.Spellbook.Address)).ToInt64():X}");
-                    Console.WriteLine($"Spell book count     -> {*(int*)(Client.Address + Offsets.Spellbook.Count)}");
+                    
+                    Console.WriteLine($@"----- Offsets -----
+Chat: Start             -> {Offsets.Chat.Start:X}
+Chat: Open              -> {Offsets.Chat.Open:X}
+Chat: Offset            -> {Offsets.Chat.Offset:X}
+Chat: Message           -> {Offsets.Chat.Message:X}
+Guid: Pet               -> {Offsets.Guids.PetGuid:X}
+Guid: Focus             -> {Offsets.Guids.FocusGuid:X}
+Guid: Player            -> {Offsets.Guids.PlayerGuid:X}
+Guid: Target            -> {Offsets.Guids.TargetGuid:X}
+Guid: Mouseover         -> {Offsets.Guids.MouseoverGuid:X}          
+Guid: Last Enemy        -> {Offsets.Guids.LastEnemyGuid:X}
+Guid: Last Target       -> {Offsets.Guids.LastTargetGuid:X}
+Guid: Last Friend       -> {Offsets.Guids.LastFriendlyGuid:X}
+Guid: Dialog Window     -> {Offsets.Guids.DialogWindowGuid:X}
+CVars: Click To Move    -> {Offsets.CVars.ClickToMove:X}
+CVars: Auto Loot        -> {Offsets.CVars.AutoLoot:X}
+CVars: Offset           -> {Offsets.CVars.Offset:X}
+Camera: Address         -> {Offsets.Camera.Address:X}
+Camera: Offset          -> {Offsets.Camera.Offset:X}
+Spells: Address         -> {Offsets.SpellBook.Address:X}
+Spells: Count           -> {Offsets.SpellBook.Count:X}
+Spells: Pet Address     -> {Offsets.SpellBook.PetAddress:X}
+Spells: Pet Count       -> {Offsets.SpellBook.PetCount:X}
+Manager: Address        -> {Offsets.ObjectManager.Address:X}
+Manager: Player Names   -> {Offsets.ObjectManager.PlayerNames:X}
+Manager: Cooldowns      -> {Offsets.ObjectManager.Cooldowns:X}
+Manager: Zone ID        -> {Offsets.ObjectManager.ZoneID:X}
+");
+
                     break;
 
                 case 2:
