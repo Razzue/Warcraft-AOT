@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Cannon.Game;
 
@@ -39,6 +35,47 @@ internal class Offsets
                     if (_offset > 0) return _offset;
                     _offset = (int)Scanner.Offset(Pattern.ActiveCamera, 1, 0, true);
                     return _offset;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    return 0;
+                }
+            }
+        }
+    }
+
+    internal class Spellbook
+    {
+        private static int playerBase;
+        internal static int Address
+        {
+            get
+            {
+                try
+                {
+                    if (playerBase > 0) return playerBase;
+                    playerBase = (int)Scanner.Offset(Pattern.PlayerSpellbook, 0, 0x8, false); 
+                    return playerBase;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    return 0;
+                }
+            }
+        }
+
+        private static int playerCount;
+        internal static int Count
+        {
+            get
+            {
+                try
+                {
+                    if (playerCount > 0) return playerCount;
+                    playerCount = (int)Scanner.Offset(Pattern.PlayerSpellbook, false);
+                    return playerCount;
                 }
                 catch (Exception e)
                 {

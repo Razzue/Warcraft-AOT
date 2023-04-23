@@ -33,7 +33,7 @@ internal class Scanner
         => Offset(pattern, 0, 0, readBytes);
     internal static object Offset(string pattern, int index, bool readBytes)
         => Offset(pattern, index, 0, readBytes);
-    internal static object Offset(string pattern, int index, int modifier, bool readBytes = false)
+    internal static object Offset(string pattern, int index, int modifier, bool readBytes)
     {
         try
         {
@@ -46,6 +46,7 @@ internal class Scanner
 
             var chunk = mask.Offsets[index];
             var result = Get(address, chunk.Item1, chunk.Item2, modifier, readBytes);
+            
             return result ?? 0;
         }
         catch (Exception e)
@@ -55,19 +56,20 @@ internal class Scanner
         }
     }
 
-    private static object? Get(int match, int offset, int size, int modifier = 0, bool isField = false)
+    private static object? Get(int match, int offset, int size, int modifier, bool isField)
     {
         try
         {
             if (match == 0 || size <= 0) return null;
             var address = (match + offset);
-            var mod = (isField ? 0 : match + (offset + size)) + modifier;
+            var mod = isField ? 0 : match + (offset + size);
+
             return size switch
             {
-                >= 5 => Client.Read<int>(address) + mod,
-                2 => Client.Read<short>(address) + mod,
-                1 => Client.Read<byte>(address) + mod,
-                4 => Client.Read<int>(address) + mod,
+                >= 5 => (Client.Read<int>(address) + mod) + modifier,
+                2 => (Client.Read<short>(address) + mod) + modifier,
+                1 => (Client.Read<byte>(address) + mod) + modifier,
+                4 => (Client.Read<int>(address) + mod) + modifier,
                 _ => null
             };
         }

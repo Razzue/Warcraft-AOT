@@ -70,6 +70,8 @@ class Main
                     Console.WriteLine($"Player Name: {Functions.GetPlayerName()}");
                     var camera = (Camera*)*(IntPtr*)(*(IntPtr*)(Client.Address + Offsets.Camera.Address) + Offsets.Camera.Offset);
                     Console.WriteLine($"Camera Location: {camera->Location}");
+                    Console.WriteLine($"Spell book address   -> {(*(IntPtr*)(Client.Address + Offsets.Spellbook.Address)).ToInt64():X}");
+                    Console.WriteLine($"Spell book count     -> {*(int*)(Client.Address + Offsets.Spellbook.Count)}");
                     break;
 
                 case 2:
