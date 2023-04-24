@@ -67,10 +67,14 @@ class Main
                     break;
 
                 case 1:
+                    for (var i = 0; i < 6; i++)
+                    {
+                        Console.WriteLine($@"Rune {i + 1}: {Functions.GetRuneCooldown(i)}");
+                    }
                     Console.WriteLine($"Player Name: {Functions.GetPlayerName()}");
                     var camera = (Camera*)*(IntPtr*)(*(IntPtr*)(Client.Address + Offsets.Camera.Address) + Offsets.Camera.Offset);
                     Console.WriteLine($"Camera Location: {camera->Location}");
-                    
+                    break;
                     Console.WriteLine($@"----- Offsets -----
 Chat: Start             -> {Offsets.Chat.Start:X}
 Chat: Open              -> {Offsets.Chat.Open:X}
@@ -84,11 +88,11 @@ Guid: Mouseover         -> {Offsets.Guids.MouseoverGuid:X}
 Guid: Last Enemy        -> {Offsets.Guids.LastEnemyGuid:X}
 Guid: Last Target       -> {Offsets.Guids.LastTargetGuid:X}
 Guid: Last Friend       -> {Offsets.Guids.LastFriendlyGuid:X}
-Guid: Dialog Window     -> {Offsets.Guids.DialogWindowGuid:X}{(Client.Expansion == 3? 
-    $"\r\nRunes: Start            -> {Offsets.Runes.Start:X}" +
-    $"\r\nRunes: Finish           -> {Offsets.Runes.Finish:X}" +
+Guid: Dialog Window     -> {Offsets.Guids.DialogWindowGuid:X}{(Client.Expansion == 3?
     $"\r\nRunes: Base Type        -> {Offsets.Runes.BaseType:X}" +
     $"\r\nRunes: Active Type      -> {Offsets.Runes.ActiveType:X}" : string.Empty)}
+Runes: Start            -> {Offsets.Runes.Start:X}
+Runes: Finish           -> {Offsets.Runes.Finish:X}
 Party: Address          -> {Offsets.Group.Address:X}
 CVars: Click To Move    -> {Offsets.CVars.ClickToMove:X}
 CVars: Auto Loot        -> {Offsets.CVars.AutoLoot:X}

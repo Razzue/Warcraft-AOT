@@ -22,4 +22,19 @@ internal class Functions
             return string.Empty;
         }
     }
+
+    internal static unsafe uint GetRuneCooldown(int index)
+    {
+        try
+        {
+            var getCooldownStart =
+                Marshal.GetDelegateForFunctionPointer<Delegates.GetRuneStart>((IntPtr)Offsets.Functions.RuneStart);
+            return (uint)getCooldownStart(index);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return 0;
+        }
+    }
 }

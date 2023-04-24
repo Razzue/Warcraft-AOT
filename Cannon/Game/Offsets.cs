@@ -289,7 +289,7 @@ internal class Offsets
                 try
                 {
                     if (runeStart > 0) return runeStart;
-                    runeStart = (int)Scanner.Offset(Pattern.PlayerRunes, 0, -0x48, true);
+                    runeStart = (int)Scanner.Offset(Pattern.PlayerRunes, 0, (Client.Expansion == 3? -0x48 : 0), Client.Expansion == 3);
                     return runeStart;
                 }
                 catch (Exception e)
@@ -308,7 +308,7 @@ internal class Offsets
                 try
                 {
                     if (runeFinish > 0) return runeFinish;
-                    runeFinish = (int)Scanner.Offset(Pattern.PlayerRunes, 0, -0x28, true);
+                    runeFinish = (int)Scanner.Offset(Pattern.PlayerRunes, 0, (Client.Expansion == 3 ? -0x28 : 0x20), Client.Expansion == 3);
                     return runeFinish;
                 }
                 catch (Exception e)
@@ -792,6 +792,25 @@ internal class Offsets
                     if (playerName > 0) return playerName;
                     playerName = (long)Scanner.Function(Pattern.PlayerName, true);
                     return playerName;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    return 0;
+                }
+            }
+        }
+
+        private static long runeStart;
+        internal static long RuneStart
+        {
+            get
+            {
+                try
+                {
+                    if (runeStart > 0) return runeStart;
+                    runeStart = (long)Scanner.Function(Pattern.PlayerRunes, true);
+                    return runeStart;
                 }
                 catch (Exception e)
                 {

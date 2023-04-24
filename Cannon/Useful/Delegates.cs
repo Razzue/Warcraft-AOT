@@ -8,4 +8,6 @@ namespace Cannon.Useful;
 internal class Delegates
 {
     internal unsafe delegate char* D_GetPlayerName();
+
+    internal unsafe delegate uint* GetRuneStart(int index);
 }
