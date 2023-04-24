@@ -99,6 +99,12 @@ Spells: Address         -> {Offsets.SpellBook.Address:X}
 Spells: Count           -> {Offsets.SpellBook.Count:X}
 Spells: Pet Address     -> {Offsets.SpellBook.PetAddress:X}
 Spells: Pet Count       -> {Offsets.SpellBook.PetCount:X}
+Globals: Status         -> {Offsets.Globals.GameStatus:X}
+Globals: Corpse         -> {Offsets.Globals.CorpsePosition:X}
+Globals: Frames         -> {Offsets.Globals.UIFrames:X}
+Globals: Window         -> {Offsets.Globals.LootWindow:X}
+Globals: Message        -> {Offsets.Globals.LastMessage:X}
+Globals: Combat Log     -> {Offsets.Globals.CombatLog:X}
 Manager: Address        -> {Offsets.ObjectManager.Address:X}
 Manager: Player Names   -> {Offsets.ObjectManager.PlayerNames:X}
 Manager: Cooldowns      -> {Offsets.ObjectManager.Cooldowns:X}

@@ -418,6 +418,147 @@ internal class Offsets
         }
     }
 
+    internal class Macros
+    {
+        private static int macroAddress;
+        internal static int ClickToMove
+        {
+            get
+            {
+                try
+                {
+                    if (macroAddress > 0) return macroAddress;
+                    macroAddress = (int)Scanner.Offset(Pattern.MacroBase, false);
+                    return macroAddress;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    return 0;
+                }
+            }
+        }
+    }
+
+    internal class Globals
+    {
+        private static int corpsePosition;
+        internal static int CorpsePosition
+        {
+            get
+            {
+                try
+                {
+                    if (corpsePosition > 0) return corpsePosition;
+                    corpsePosition = (int)Scanner.Offset(Pattern.CorpsePosition, 0, 0x40, false);
+                    return corpsePosition;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    return 0;
+                }
+            }
+        }
+
+        private static int lootWindow;
+        internal static int LootWindow
+        {
+            get
+            {
+                try
+                {
+                    if (lootWindow > 0) return lootWindow;
+                    lootWindow = (int)Scanner.Offset(Pattern.LootWindow, false);
+                    return lootWindow;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    return 0;
+                }
+            }
+        }
+
+        private static int combatLog;
+        internal static int CombatLog
+        {
+            get
+            {
+                try
+                {
+                    if (combatLog > 0) return combatLog;
+                    combatLog = (int)Scanner.Offset(Pattern.CombatLog, false);
+                    return combatLog;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    return 0;
+                }
+            }
+        }
+
+        private static int uiFrames;
+        internal static int UIFrames
+        {
+            get
+            {
+                try
+                {
+                    if (uiFrames > 0) return uiFrames;
+                    uiFrames = (int)Scanner.Offset(Pattern.UIFrames, false);
+                    return uiFrames;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    return 0;
+                }
+            }
+        }
+
+        private static int lastMessage;
+        internal static int LastMessage
+        {
+            get
+            {
+                try
+                {
+                    if (lastMessage > 0) return lastMessage;
+                    lastMessage = (int)Scanner.Offset(Pattern.Message, false);
+                    return lastMessage;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    return 0;
+                }
+            }
+        }
+
+        private static int gameStatus;
+        internal static int GameStatus
+        {
+            get
+            {
+                try
+                {
+                    if (gameStatus > 0) return gameStatus;
+                    gameStatus = (int)Scanner.Offset(Pattern.Status, false);
+                    return gameStatus;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    return 0;
+                }
+            }
+        }
+
+
+    }
+
     internal class Camera
     {
         private static int _address;
